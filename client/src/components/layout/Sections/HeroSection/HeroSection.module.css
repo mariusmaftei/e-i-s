@@ -1,0 +1,130 @@
+.hero {
+  background-color: #0056b3;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.bgOverlay {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.1;
+}
+
+.container {
+  position: relative;
+  z-index: 10;
+  padding: 3rem 1rem;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.textContent {
+  width: 100%;
+  margin-bottom: 2.5rem;
+}
+
+.imageContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  /* Eliminat fundalul alb și padding pentru a păstra transparența */
+  border-radius: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 5rem 1rem;
+  }
+
+  .content {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .textContent {
+    width: 50%;
+    padding-right: 2rem;
+    margin-bottom: 0;
+  }
+
+  .imageContainer {
+    width: 50%;
+  }
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.25rem 1rem;
+  background-color: #00a0e9;
+  color: white;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+.title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 3rem;
+  }
+}
+
+.highlight {
+  color: #00a0e9;
+}
+
+.description {
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 32rem;
+}
+
+.stats {
+  display: flex;
+  align-items: center;
+  font-size: 0.875rem;
+}
+
+.statItem {
+  display: flex;
+  align-items: center;
+  margin-right: 1.5rem;
+}
+
+.statIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: 0.5rem;
+}
+
+.heroImage {
+  max-width: 80%; /* Redus de la 100% la 80% pentru a face imaginea mai mică */
+  height: auto;
+  display: block;
+  /* Adăugat pentru a păstra transparența */
+  mix-blend-mode: normal;
+}
+
+/* Adăugat media query pentru a face imaginea și mai mică pe ecrane mari */
+@media (min-width: 1024px) {
+  .heroImage {
+    max-width: 70%;
+  }
+}

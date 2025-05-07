@@ -1,0 +1,108 @@
+.homePage {
+  width: 100%;
+}
+
+.ctaSection {
+  padding: 4rem 1rem;
+  background-color: white;
+}
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.ctaContainer {
+  background-color: #0056b3;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.ctaGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .ctaGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.ctaContent {
+  padding: 2rem;
+}
+
+@media (min-width: 768px) {
+  .ctaContent {
+    padding: 3rem;
+  }
+}
+
+.ctaBadge {
+  color: #00a0e9;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.ctaTitle {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 1.5rem;
+}
+
+.ctaDescription {
+  color: #e5e7eb;
+  margin-bottom: 2rem;
+}
+
+.ctaButtonWrapper {
+  display: block;
+}
+
+.ctaButton {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #00a0e9;
+  color: white;
+  font-weight: 600;
+  border-radius: 0.375rem;
+  transition: background-color 0.2s;
+  text-decoration: none;
+}
+
+.ctaButton:hover {
+  background-color: rgba(0, 160, 233, 0.9);
+}
+
+.ctaImageWrapper {
+  display: none;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .ctaImageWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+  }
+}
+
+.ctaImage {
+  max-width: 70%;
+  height: auto;
+  object-fit: contain;
+  /* Păstrează transparența */
+  mix-blend-mode: normal;
+}
+
+@media (min-width: 1024px) {
+  .ctaImage {
+    max-width: 60%;
+  }
+}

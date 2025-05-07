@@ -1,0 +1,352 @@
+/* Navbar colors */
+.primary {
+  color: #0056b3;
+}
+
+.secondary {
+  color: #007bff;
+}
+
+.accent {
+  color: #00a0e9;
+}
+
+.bgPrimary {
+  background-color: #0056b3;
+}
+
+.bgSecondary {
+  background-color: #007bff;
+}
+
+.bgAccent {
+  background-color: #00a0e9;
+}
+
+/* Navbar specific styles */
+.navbar {
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.navbarContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4rem;
+}
+
+/* Logo styles */
+.logoWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logoContainer {
+  width: 48px;
+  height: 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.logo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.logoText {
+  margin-left: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+/* Desktop navigation */
+.desktopNav {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .desktopNav {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+}
+
+.navLink {
+  position: relative;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  color: #4b5563;
+  text-decoration: none;
+}
+
+.navLink:hover {
+  color: #0056b3;
+}
+
+.navLink:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #0056b3;
+  transition: width 0.3s ease;
+}
+
+.navLink:hover:after {
+  width: 100%;
+}
+
+/* Auth buttons */
+.authButtons {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .authButtons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+.userMenuContainer {
+  position: relative;
+}
+
+.btnLogin {
+  background-color: transparent;
+  border: 1px solid #0056b3;
+  color: #0056b3;
+  font-weight: 600;
+  padding: 0.5rem 1.25rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.btnLogin:hover {
+  background-color: rgba(0, 86, 179, 0.1);
+}
+
+.userIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: 0.5rem;
+}
+
+.chevronIcon {
+  width: 1rem;
+  height: 1rem;
+  margin-left: 0.25rem;
+}
+
+.btnRegister {
+  background-color: #0056b3;
+  color: white;
+  font-weight: 600;
+  padding: 0.5rem 1.25rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 86, 179, 0.3);
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.btnRegister:hover {
+  background-color: #004494;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 86, 179, 0.4);
+}
+
+.registerIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: 0.5rem;
+}
+
+/* Dropdown menu */
+.dropdownMenu {
+  position: absolute;
+  right: 0;
+  margin-top: 0.5rem;
+  width: 12rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border: none;
+  padding: 0.5rem 0;
+  animation: fadeIn 0.5s ease-in-out;
+  z-index: 100;
+}
+
+.dropdownContent {
+  padding: 0.5rem 0;
+}
+
+.dropdownItem {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  color: #4b5563;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.dropdownItem:hover {
+  background-color: rgba(0, 86, 179, 0.05);
+  color: #0056b3;
+}
+
+.dropdownIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: 0.5rem;
+}
+
+.divider {
+  border-top: 1px solid #f3f4f6;
+  margin: 0.25rem 0;
+}
+
+/* Mobile menu button */
+.mobileMenuButton {
+  display: flex;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .mobileMenuButton {
+    display: none;
+  }
+}
+
+.menuToggle {
+  color: #4b5563;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menuToggle:hover {
+  color: #0056b3;
+}
+
+.menuToggle:focus {
+  outline: none;
+}
+
+.menuIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* Mobile menu */
+.mobileMenu {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.mobileMenuContent {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 0;
+}
+
+.mobileNavLink {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: #4b5563;
+  border-radius: 0.375rem;
+  text-decoration: none;
+}
+
+.mobileNavLink:hover {
+  color: #0056b3;
+  background-color: #f9fafb;
+}
+
+.mobileAuthButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-top: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 0.75rem;
+}
+
+.mobileBtnLogin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  border: 1px solid #0056b3;
+  color: #0056b3;
+  font-weight: 500;
+  border-radius: 0.375rem;
+  text-decoration: none;
+}
+
+.mobileBtnLogin:hover {
+  background-color: rgba(0, 86, 179, 0.05);
+}
+
+.mobileBtnRegister {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  background-color: #0056b3;
+  color: white;
+  font-weight: 500;
+  border-radius: 0.375rem;
+  box-shadow: 0 2px 5px rgba(0, 86, 179, 0.3);
+  text-decoration: none;
+}
+
+.mobileBtnRegister:hover {
+  background-color: #004494;
+}
+
+.mobileAuthIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: 0.5rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
