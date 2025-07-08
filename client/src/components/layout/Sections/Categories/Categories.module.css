@@ -127,3 +127,16 @@
 .resetButton:hover {
   background-color: #004494;
 }
+
+/* Responsive adjustments for .section padding */
+@media (max-width: 768px) {
+  .section {
+    padding: 2rem 0.5rem; /* Reduced padding for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 1.5rem 0.25rem; /* Further reduced padding for very small screens */
+  }
+}

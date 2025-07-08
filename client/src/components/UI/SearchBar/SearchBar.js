@@ -3,6 +3,7 @@ import styles from "./SearchBar.module.css";
 import { X, ChevronDown, ChevronUp, Search } from "lucide-react";
 import { useServiceContext } from "../../../context/ServiceContext";
 import { createPortal } from "react-dom";
+import ServiceSelectionInput from "../../layout/Sections/ServiceSelectionInput/ServiceSelectionInput";
 
 const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -17,8 +18,12 @@ const SearchBar = () => {
   const [isMounted, setIsMounted] = useState(false);
 
   // Utilizăm contextul pentru a accesa și manipula serviciile selectate
-  const { selectedServices, addService, removeService, performSearch } =
-    useServiceContext();
+  const {
+    selectedServices,
+    setSelectedServices,
+    performSearch,
+    clearServices,
+  } = useServiceContext();
 
   // Lista de servicii populare
   const popularServices = [
@@ -73,12 +78,7 @@ const SearchBar = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    setIsDropdownOpen(false);
     performSearch(); // Actualizăm starea pentru a indica că s-a efectuat o căutare
-    console.log(
-      "Căutare pentru:",
-      selectedServices.length > 0 ? selectedServices : searchTerm
-    );
 
     // Scroll către secțiunea de servicii populare
     const servicesSection = document.getElementById("servicii-populare");
@@ -92,7 +92,7 @@ const SearchBar = () => {
   };
 
   const handleAddService = (service) => {
-    addService(service);
+    setSelectedServices([...selectedServices, service]);
     setSearchTerm("");
     setIsDropdownOpen(false);
   };
@@ -155,51 +155,14 @@ const SearchBar = () => {
     <div className={styles.searchBarContainer}>
       <form onSubmit={handleSearch} className={styles.searchForm}>
         <div className={styles.searchInputWrapper}>
-          <label htmlFor="search" className={styles.searchLabel}>
-            Ce serviciu cauți?
-          </label>
-          <div ref={inputContainerRef} className={styles.searchInputContainer}>
-            <div className={styles.selectedServicesTags}>
-              {selectedServices.map((service) => (
-                <div key={service} className={styles.serviceTag}>
-                  <span>{service}</span>
-                  <button
-                    type="button"
-                    onClick={() => removeService(service)}
-                    className={styles.removeTag}
-                  >
-                    <X size={14} />
-                  </button>
-                </div>
-              ))}
-              <input
-                type="text"
-                id="search"
-                placeholder={
-                  selectedServices.length > 0
-                    ? "Adaugă alt serviciu..."
-                    : "ex. Electrician, Instalator, Mecanic Auto"
-                }
-                className={styles.searchInput}
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                onClick={() => setIsDropdownOpen(true)}
-              />
-            </div>
-            <button
-              type="button"
-              className={styles.dropdownToggle}
-              onClick={toggleDropdown}
-            >
-              {isDropdownOpen ? (
-                <ChevronUp size={20} />
-              ) : (
-                <ChevronDown size={20} />
-              )}
-            </button>
-          </div>
-
-          {renderDropdown()}
+          <ServiceSelectionInput
+            id="search-services"
+            name="searchServices"
+            label="Ce serviciu cauți?"
+            placeholder="ex. Electrician, Instalator, Mecanic Auto"
+            selectedServices={selectedServices}
+            onServicesChange={setSelectedServices} // Folosim setSelectedServices din context
+          />
         </div>
 
         <div className={styles.buttonWrapper}>

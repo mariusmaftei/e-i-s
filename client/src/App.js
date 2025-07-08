@@ -1,8 +1,13 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import RootLayout from "./components/layout/RootLayout/RootLayout";
 import "./App.css";
-import Home from "./pages/home/home";
-import ServicesPage from "./pages/ServicePage/ServicePage";
+
+import RootLayout from "./components/RootLayout/RootLayout";
+import Home from "./pages/home/HomePage";
+import ServicePage from "./pages/services/ServicesPage";
+import RequestServicePage from "./pages/requested-service/RequestedServicePage";
+import ProvidersPage from "./pages/providers/ProvidersPage";
+import AboutPage from "./pages/about/AboutPage";
+import ContactPage from "./pages/contact/ContactPage";
 
 const route = createBrowserRouter([
   {
@@ -10,12 +15,28 @@ const route = createBrowserRouter([
     element: <RootLayout />,
     children: [
       {
-        index: true,
+        path: "/",
         element: <Home />,
       },
       {
-        path: "/servicii/:category",
-        element: <ServicesPage />,
+        path: "/solicita-serviciu",
+        element: <ServicePage />,
+      },
+      {
+        path: "/solicita-serviciu/:categorySlug",
+        element: <RequestServicePage />,
+      },
+      {
+        path: "/devino-prestator",
+        element: <ProvidersPage />,
+      },
+      {
+        path: "/despre",
+        element: <AboutPage />,
+      },
+      {
+        path: "/contact",
+        element: <ContactPage />,
       },
     ],
   },

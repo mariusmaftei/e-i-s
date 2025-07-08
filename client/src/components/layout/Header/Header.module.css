@@ -43,7 +43,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 4rem;
+  height: 5rem; /* Mărit de la 4rem la 5rem */
 }
 
 /* Logo styles */
@@ -59,8 +59,8 @@
 }
 
 .logoContainer {
-  width: 48px;
-  height: 48px;
+  width: 56px; /* Mărit pentru a se potrivi cu înălțimea crescută a navbar-ului */
+  height: 56px; /* Mărit pentru a se potrivi cu înălțimea crescută a navbar-ului */
   position: relative;
   overflow: hidden;
 }
@@ -72,8 +72,8 @@
 }
 
 .logoText {
-  margin-left: 0.5rem;
-  font-size: 1.25rem;
+  margin-left: 0.75rem; /* Ușor mărit spațiul */
+  font-size: 1.5rem; /* Mărit de la 1.25rem */
   font-weight: 700;
   color: #1f2937;
 }
@@ -87,15 +87,16 @@
   .desktopNav {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 2.5rem; /* Mărit spațiul între link-uri */
   }
 }
 
 .navLink {
   position: relative;
-  font-weight: 500;
+  font-weight: 600; /* Mărit de la 500 la 600 */
+  font-size: 1rem; /* Mărit de la dimensiunea implicită */
   transition: all 0.2s ease;
-  color: #4b5563;
+  color: #333; /* Schimbat la o culoare mai închisă pentru vizibilitate */
   text-decoration: none;
 }
 

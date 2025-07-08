@@ -1,0 +1,211 @@
+.homePage {
+  display: flex;
+  min-height: calc(100vh - 9rem); /* Subtract header and footer height */
+  width: 100%;
+}
+
+.leftSide {
+  flex: 1;
+  background-color: #0056b3;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Align content to the right */
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.rightSide {
+  flex: 1;
+  background-color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Align content to the left */
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.sideContent {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px; /* Max width for the content block itself */
+  width: 100%;
+}
+
+.leftSide .sideContent {
+  align-items: flex-end; /* Align children to the right */
+  text-align: right; /* Align text within children to the right */
+}
+
+.rightSide .sideContent {
+  align-items: flex-start; /* Align children to the left */
+  text-align: left; /* Align text within children to the left */
+}
+
+.sideTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.leftSide .sideTitle {
+  color: white;
+}
+
+.rightSide .sideTitle {
+  color: #1f2937;
+}
+
+.sideDescription {
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.leftSide .sideDescription {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.rightSide .sideDescription {
+  color: #4b5563;
+}
+
+.imageWrapper {
+  margin-bottom: 2.5rem;
+  display: flex;
+}
+
+.leftSide .imageWrapper {
+  justify-content: flex-end; /* Push image to the right within left side */
+}
+
+.rightSide .imageWrapper {
+  justify-content: flex-start; /* Push image to the left within right side */
+}
+
+.sideImage {
+  max-width: 420px; /* 50% larger than previous 280px */
+  height: auto;
+  display: block;
+  border-radius: 0.5rem;
+}
+
+/* New style for button container to center the button */
+.buttonContainer {
+  width: 100%; /* Ensure it takes full width to allow centering */
+  display: flex;
+  justify-content: center; /* Center the button horizontally */
+}
+
+.buttonProvider,
+.buttonClient {
+  display: inline-flex; /* Keep as inline-flex so it doesn't take full width */
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  min-width: 200px;
+}
+
+.buttonProvider {
+  background-color: white;
+  color: #0056b3;
+  border: 2px solid white;
+}
+
+.buttonProvider:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.buttonClient {
+  background-color: #0056b3;
+  color: white;
+  border: 2px solid #0056b3;
+}
+
+.buttonClient:hover {
+  background-color: #004494;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 86, 179, 0.4);
+}
+
+/* Mobile responsive design (maintaining row direction) */
+@media (max-width: 768px) {
+  .homePage {
+    /* flex-direction: column; - REMOVED, keeping row */
+    min-height: auto; /* Allow height to adjust */
+  }
+
+  .leftSide,
+  .rightSide {
+    padding: 1rem; /* Reduced padding for smaller screens */
+    /* Revert justify-content to original desktop values */
+    justify-content: flex-end; /* For leftSide */
+    /* For rightSide, it's flex-start, which is already the default */
+  }
+
+  .sideContent {
+    /* Revert align-items and text-align to original desktop values */
+    align-items: flex-end; /* For leftSide */
+    text-align: right; /* For leftSide */
+    /* For rightSide, it's flex-start/left, which is already the default */
+    max-width: 100%; /* Allow content to shrink with column */
+  }
+
+  .sideTitle {
+    font-size: 1.5rem; /* Smaller font size */
+  }
+
+  .sideDescription {
+    font-size: 0.875rem; /* Smaller font size */
+    margin-bottom: 1rem; /* Reduced margin */
+  }
+
+  .sideImage {
+    max-width: 100%; /* Make image responsive to its parent column */
+  }
+
+  .imageWrapper {
+    margin-bottom: 1.5rem; /* Reduced margin */
+    /* Revert justify-content to original desktop values */
+    justify-content: flex-end; /* For leftSide */
+    /* For rightSide, it's flex-start, which is already the default */
+  }
+
+  .buttonProvider,
+  .buttonClient {
+    font-size: 0.9rem; /* Smaller button text */
+    padding: 0.75rem 1rem; /* Smaller button padding */
+    min-width: 120px; /* Smaller min-width for buttons */
+  }
+}
+
+/* Further adjustments for very small screens */
+@media (max-width: 480px) {
+  .leftSide,
+  .rightSide {
+    padding: 0.5rem; /* Even smaller padding */
+  }
+
+  .sideTitle {
+    font-size: 1.25rem; /* Even smaller font size */
+  }
+
+  .sideDescription {
+    font-size: 0.8rem; /* Even smaller font size */
+  }
+
+  .buttonProvider,
+  .buttonClient {
+    font-size: 0.8rem; /* Smaller button text */
+    padding: 0.5rem 0.3rem; /* Smaller button padding */
+    min-width: 100px; /* Smaller min-width for buttons */
+  }
+}

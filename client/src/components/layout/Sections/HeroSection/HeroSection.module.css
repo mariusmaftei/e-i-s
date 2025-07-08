@@ -128,3 +128,66 @@
     max-width: 70%;
   }
 }
+
+/* Stiluri noi pentru secțiunea cu servicii populare */
+.popularServicesSection {
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.popularServicesTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .popularServicesTitle {
+    text-align: left;
+  }
+}
+
+.serviceIconsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centrat pe toate dimensiunile */
+  gap: 1.5rem;
+}
+
+.serviceIconItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100px; /* Lățime fixă pentru fiecare element */
+}
+
+.iconCircle {
+  width: 4.55rem; /* Mărit cu 30% (3.5rem * 1.3) */
+  height: 4.55rem; /* Mărit cu 30% (3.5rem * 1.3) */
+  background-color: #00a0e9;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.275rem; /* Mărit cu 30% (1.75rem * 1.3) */
+  color: white;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease; /* Adăugat pentru o tranziție lină */
+}
+
+.iconCircle:hover {
+  transform: scale(1.1); /* Mărește cercul cu 10% la hover */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Umbră mai pronunțată la hover */
+  background-color: #007bff; /* O nuanță ușor diferită de albastru la hover */
+}
+
+.iconText {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.3;
+}

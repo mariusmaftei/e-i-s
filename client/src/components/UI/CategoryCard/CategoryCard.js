@@ -6,7 +6,14 @@ const CategoryCard = ({ category }) => {
   const categorySlug = category.name.toLowerCase().replace(/\s+/g, "-");
 
   return (
-    <Link to={`/servicii/${categorySlug}`} className="block group">
+    <Link
+      to={`/solicita-serviciu/${categorySlug}`} // Changed route
+      state={{
+        categoryName: category.name,
+        categoryImage: category.backgroundImage,
+      }}
+      className="block group"
+    >
       <div className={styles.card}>
         <img
           src={category.backgroundImage || "/placeholder.svg"}
@@ -37,12 +44,8 @@ const CategoryCard = ({ category }) => {
             <p className={styles.description}>{category.description}</p>
 
             <div className={styles.footer}>
-              <div className={styles.badge}>
-                <span className={styles.badgeCount}>{category.count}</span>
-                <span className={styles.badgeText}>prestatori</span>
-              </div>
               <div className={styles.viewMore}>
-                <span>Vezi servicii</span>
+                <span>Vezi specialiști</span> {/* Changed button text */}
                 <svg
                   className={styles.arrowIcon}
                   width="16"

@@ -1,12 +1,12 @@
-import React, { Fragment } from "react";
+import { Fragment } from "react";
 import { Outlet } from "react-router-dom";
-import Navbar from "../Navbar/Navbar";
-import Footer from "../Footer/Footer";
+import Header from "../layout/Header/Header";
+import Footer from "../layout/Footer/Footer";
 
 export default function RootLayout() {
   return (
     <Fragment>
-      <Navbar />
+      <Header />
       <Outlet />
       <Footer />
     </Fragment>

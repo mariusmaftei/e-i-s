@@ -122,7 +122,7 @@
 
 .footer {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end; /* Modificat de la space-between la flex-end */
   align-items: center;
   margin-top: 0.5rem;
 }

@@ -45,9 +45,9 @@ export const ServiceProvider = ({ children }) => {
     setSearchPerformed(true);
   };
 
-  // Valoarea care va fi furnizată prin context
   const value = {
     selectedServices,
+    setSelectedServices,
     filterServices,
     searchPerformed,
     addService,
