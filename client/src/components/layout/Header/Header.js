@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
-import EISLogo from "../../../assets/images/EIS_logo.png";
+import EISLogo from "../../../assets/images/logo/eis-service-logo.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -10,7 +10,6 @@ const Header = () => {
     <nav className={styles.navbar}>
       <div className={styles.container}>
         <div className={styles.navbarContent}>
-          {/* Logo */}
           <div className={styles.logoWrapper}>
             <Link to="/" className={styles.logoLink}>
               <div className={styles.logoContainer}>
@@ -29,10 +28,10 @@ const Header = () => {
               Acasă
             </Link>
             <Link to="/solicita-serviciu" className={styles.navLink}>
-              Cere un serviciu
+              Solicită un specialist
             </Link>
             <Link to="/devino-prestator" className={styles.navLink}>
-              Oferă un serviciu
+              Înscrie-te ca specialist
             </Link>
             <Link to="/despre" className={styles.navLink}>
               Despre noi
@@ -74,29 +73,52 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className={styles.mobileMenu}>
-            <div className={styles.mobileMenuContent}>
-              <a href="#" className={styles.mobileNavLink}>
-                Acasă
-              </a>
-              <a href="#" className={styles.mobileNavLink}>
-                Servicii
-              </a>
-              <Link to="/devino-prestator" className={styles.mobileNavLink}>
-                {" "}
-                {/* Link actualizat */}
-                Oferă un serviciu
-              </Link>
-              <a href="#" className={styles.mobileNavLink}>
-                Despre noi
-              </a>
-              <a href="#" className={styles.mobileNavLink}>
-                Contact
-              </a>
+          <>
+            <div
+              className={styles.mobileMenuOverlay}
+              onClick={() => setIsMenuOpen(false)}
+            ></div>
+            <div className={styles.mobileMenu}>
+              <div className={styles.mobileMenuContent}>
+                <Link
+                  to="/"
+                  className={styles.mobileNavLink}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Acasă
+                </Link>
+                <Link
+                  to="/solicita-serviciu"
+                  className={styles.mobileNavLink}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Solicită un specialist
+                </Link>
+                <Link
+                  to="/devino-prestator"
+                  className={styles.mobileNavLink}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Înscrie-te ca specialist
+                </Link>
+                <Link
+                  to="/despre"
+                  className={styles.mobileNavLink}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Despre noi
+                </Link>
+                <Link
+                  to="/contact"
+                  className={styles.mobileNavLink}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Contact
+                </Link>
+              </div>
             </div>
-          </div>
+          </>
         )}
       </div>
     </nav>

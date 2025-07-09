@@ -4,7 +4,7 @@ import { Mail, Phone, MessageCircle } from "lucide-react";
 const ContactPage = () => {
   const email = "contact@eisservice.ro";
   const phone = "0752 912 191";
-  const whatsappLink = `https://wa.me/+40752912191`; // Link WhatsApp cu prefixul de țară
+  const whatsappLink = `https://wa.me/+40752912191`;
   const googleMapsEmbedUrl =
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2784.0000000000005!2d25.589999999999997!3d45.642000000000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b35b7e0d0d0d0d%3A0x0d0d0d0d0d0d0d0d!2sStrada%20Baciului%204%2C%20Bra%C8%99ov%20500000!5e0!3m2!1sen!2sro!4v1700000000000!5m2!1sen!2sro"; // Exemplu pentru Strada Baciului nr. 4, Brașov
 

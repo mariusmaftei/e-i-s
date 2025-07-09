@@ -1,14 +1,12 @@
 .aboutPage {
   padding: 4rem 1rem;
   background-color: #f5f5f7;
-  min-height: calc(
-    100vh - 10rem
-  ); /* Asigură că pagina ocupă spațiul disponibil */
+  min-height: calc(100vh - 10rem);
 }
 
 .container {
   width: 100%;
-  max-width: 960px; /* Lățime maximă pentru conținutul paginii */
+  max-width: 960px;
   margin: 0 auto;
   background-color: white;
   border-radius: 0.75rem;

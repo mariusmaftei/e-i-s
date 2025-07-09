@@ -3,13 +3,44 @@ import Categories from "../../components/layout/Sections/Categories/Categories";
 import styles from "./ServicesPage.module.css";
 import { ServiceProvider } from "../../context/ServiceContext";
 import BecomeProviderCard from "../../components/layout/Sections/BecomeProviderCard/BecomeProviderCard";
-import EISTeamImage from "../../assets/images/eis_team.png";
+
+import EISTeamImage from "../../assets/images/eis-team-images/eis_team.webp";
+import ElectricianIcon from "../../assets/images/illustration/electrician-image.png";
+import PlumberIcon from "../../assets/images/illustration/plumber-image.png";
+import WelderIcon from "../../assets/images/illustration/welder-image.png";
 
 const ServicePage = () => {
   const popularServiceIcons = [
-    { icon: "⚡", text: "Electrician" },
-    { icon: "🔧", text: "Instalator" },
-    { icon: "💥", text: "Sudor" },
+    {
+      icon: (
+        <img
+          src={ElectricianIcon || "/placeholder.svg"}
+          alt="Electrician"
+          className={styles.serviceIconImage}
+        />
+      ),
+      text: "Electrician",
+    },
+    {
+      icon: (
+        <img
+          src={PlumberIcon || "/placeholder.svg"}
+          alt="Plumber"
+          className={styles.serviceIconImage}
+        />
+      ),
+      text: "Instalator",
+    },
+    {
+      icon: (
+        <img
+          src={WelderIcon || "/placeholder.svg"}
+          alt="Welder"
+          className={styles.serviceIconImage}
+        />
+      ),
+      text: "Sudor",
+    },
   ];
 
   return (

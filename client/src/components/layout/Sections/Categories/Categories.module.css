@@ -1,6 +1,6 @@
 .section {
   padding: 4rem 1rem;
-  background-color: white;
+  background-color: #f5f5f7;
   scroll-margin-top: 80px;
 }
 
@@ -94,6 +94,13 @@
   gap: 2rem;
 }
 
+@media (max-width: 390px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+}
+
 @media (min-width: 640px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
@@ -128,15 +135,14 @@
   background-color: #004494;
 }
 
-/* Responsive adjustments for .section padding */
 @media (max-width: 768px) {
   .section {
-    padding: 2rem 0.5rem; /* Reduced padding for smaller screens */
+    padding: 2rem 0.5rem;
   }
 }
 
 @media (max-width: 480px) {
   .section {
-    padding: 1.5rem 0.25rem; /* Further reduced padding for very small screens */
+    padding: 1.5rem 0.25rem;
   }
 }

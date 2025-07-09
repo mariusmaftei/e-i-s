@@ -10,7 +10,7 @@
   inset: 0;
   background-size: cover;
   background-position: center;
-  opacity: 0.1;
+  opacity: 0.03;
 }
 
 .container {
@@ -36,7 +36,6 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  /* Eliminat fundalul alb și padding pentru a păstra transparența */
   border-radius: 0.5rem;
 }
 
@@ -115,21 +114,19 @@
 }
 
 .heroImage {
-  max-width: 80%; /* Redus de la 100% la 80% pentru a face imaginea mai mică */
+  max-width: 80%;
   height: auto;
   display: block;
-  /* Adăugat pentru a păstra transparența */
+
   mix-blend-mode: normal;
 }
 
-/* Adăugat media query pentru a face imaginea și mai mică pe ecrane mari */
 @media (min-width: 1024px) {
   .heroImage {
     max-width: 70%;
   }
 }
 
-/* Stiluri noi pentru secțiunea cu servicii populare */
 .popularServicesSection {
   margin-top: 2rem;
   width: 100%;
@@ -152,7 +149,7 @@
 .serviceIconsContainer {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* Centrat pe toate dimensiunile */
+  justify-content: center;
   gap: 1.5rem;
 }
 
@@ -161,28 +158,28 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  width: 100px; /* Lățime fixă pentru fiecare element */
+  width: 100px;
 }
 
 .iconCircle {
-  width: 4.55rem; /* Mărit cu 30% (3.5rem * 1.3) */
-  height: 4.55rem; /* Mărit cu 30% (3.5rem * 1.3) */
+  width: 6rem;
+  height: 6rem;
   background-color: #00a0e9;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2.275rem; /* Mărit cu 30% (1.75rem * 1.3) */
   color: white;
   margin-bottom: 0.75rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease; /* Adăugat pentru o tranziție lină */
+  transition: all 0.3s ease;
+  overflow: hidden;
 }
 
 .iconCircle:hover {
-  transform: scale(1.1); /* Mărește cercul cu 10% la hover */
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Umbră mai pronunțată la hover */
-  background-color: #007bff; /* O nuanță ușor diferită de albastru la hover */
+  transform: scale(1.1);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  background-color: #007bff;
 }
 
 .iconText {
@@ -190,4 +187,10 @@
   font-weight: 500;
   color: rgba(255, 255, 255, 0.9);
   line-height: 1.3;
+}
+
+.serviceIconImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }

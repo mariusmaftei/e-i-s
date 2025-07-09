@@ -21,8 +21,8 @@
 @media (min-width: 768px) {
   .searchForm {
     flex-direction: row;
-    align-items: flex-end; /* Aliniază la baza elementelor */
-    gap: 1.5rem; /* Mărește distanța între elemente */
+    align-items: flex-end;
+    gap: 1.5rem;
   }
 }
 
@@ -125,42 +125,42 @@
 .buttonWrapper {
   display: flex;
   align-items: center;
-  flex-shrink: 0; /* Previne comprimarea butonului */
+  flex-shrink: 0;
 }
 
 .searchButton {
   width: 100%;
-  min-height: 42px; /* Aceeași înălțime ca inputul */
-  padding: 1.05rem 3rem; /* Padding mai generos pentru aspect profesionist */
+  min-height: 42px;
+  padding: 1.05rem 3rem;
   background-color: #0056b3;
   color: white;
   font-weight: 600;
-  font-size: 0.9375rem; /* Ușor mai mare pentru lizibilitate */
-  border-radius: 0.5rem; /* Border radius ușor mai mare */
+  font-size: 0.9375rem;
+  border-radius: 0.5rem;
   border: none;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.2s ease;
-  box-shadow: 0 2px 4px rgba(0, 86, 179, 0.2); /* Umbră subtilă */
-  white-space: nowrap; /* Previne ruperea textului */
+  box-shadow: 0 2px 4px rgba(0, 86, 179, 0.2);
+  white-space: nowrap;
 }
 
 @media (min-width: 768px) {
   .searchButton {
     width: auto;
-    min-width: 120px; /* Lățime minimă pentru aspect consistent */
+    min-width: 120px;
   }
 }
 
 .searchButton:hover {
   background-color: #004494;
-  box-shadow: 0 4px 8px rgba(0, 86, 179, 0.3); /* Umbră mai pronunțată la hover */
+  box-shadow: 0 4px 8px rgba(0, 86, 179, 0.3);
 }
 
 .searchButton:active {
-  transform: translateY(0); /* Resetează transformarea la click */
+  transform: translateY(0);
   box-shadow: 0 2px 4px rgba(0, 86, 179, 0.2);
 }
 
@@ -171,10 +171,9 @@
 
 .searchIcon {
   margin-right: 0.5rem;
-  flex-shrink: 0; /* Previne comprimarea iconului */
+  flex-shrink: 0;
 }
 
-/* Stiluri pentru dropdown-ul portalat */
 .dropdownPortal {
   background-color: white;
   border-radius: 0.375rem;

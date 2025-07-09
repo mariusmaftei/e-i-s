@@ -1,8 +1,9 @@
-"use client";
-
 import styles from "./HeroSection.module.css";
-import SearchBar from "../../../UI/SearchBar/SearchBar";
 import { useLocation } from "react-router-dom";
+import SearchBar from "../../../UI/SearchBar/SearchBar";
+
+import ConstructionSideImage from "../../../../assets/images/background-images/construction-side-image.webp";
+import OfficeSideImage from "../../../../assets/images/background-images/office-side-image.webp";
 
 const HeroSection = ({
   badgeText,
@@ -10,20 +11,29 @@ const HeroSection = ({
   highlightText,
   description,
   imageSrc,
-  popularServicesSection, // { title: string, icons: Array<{ icon: string | React.ReactNode, text: string }> }
+  popularServicesSection,
 }) => {
   const location = useLocation();
   const pathname = location.pathname;
 
   return (
     <div className={styles.hero}>
-      <div
-        className={styles.bgOverlay}
-        style={{
-          backgroundImage:
-            "url('https://via.placeholder.com/1920x1080?text=Background')",
-        }}
-      ></div>
+      {pathname.startsWith("/solicita-serviciu") && (
+        <div
+          className={styles.bgOverlay}
+          style={{
+            backgroundImage: `url(${ConstructionSideImage})`,
+          }}
+        ></div>
+      )}
+      {pathname.startsWith("/devino-prestator") && (
+        <div
+          className={styles.bgOverlay}
+          style={{
+            backgroundImage: `url(${OfficeSideImage})`,
+          }}
+        ></div>
+      )}
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={styles.textContent}>
@@ -54,8 +64,8 @@ const HeroSection = ({
 
           <div className={styles.imageContainer}>
             <img
-              src={imageSrc || "/placeholder.svg"}
-              alt="Hero Image"
+              src={imageSrc}
+              alt="background-cover"
               className={styles.heroImage}
             />
           </div>

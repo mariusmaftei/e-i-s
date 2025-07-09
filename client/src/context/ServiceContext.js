@@ -1,11 +1,7 @@
-"use client";
-
 import { createContext, useState, useContext } from "react";
 
-// Crearea contextului
 const ServiceContext = createContext();
 
-// Hook personalizat pentru a utiliza contextul
 export const useServiceContext = () => {
   const context = useContext(ServiceContext);
   if (!context) {
@@ -16,13 +12,11 @@ export const useServiceContext = () => {
   return context;
 };
 
-// Provider component
 export const ServiceProvider = ({ children }) => {
-  const [selectedServices, setSelectedServices] = useState([]); // Servicii selectate în dropdown
-  const [filterServices, setFilterServices] = useState([]); // Servicii folosite pentru filtrare
+  const [selectedServices, setSelectedServices] = useState([]);
+  const [filterServices, setFilterServices] = useState([]);
   const [searchPerformed, setSearchPerformed] = useState(false);
 
-  // Funcții pentru manipularea serviciilor selectate
   const addService = (service) => {
     if (!selectedServices.includes(service)) {
       setSelectedServices([...selectedServices, service]);
@@ -39,9 +33,8 @@ export const ServiceProvider = ({ children }) => {
     setSearchPerformed(false);
   };
 
-  // Funcție pentru a aplica filtrarea când se apasă butonul Caută
   const performSearch = () => {
-    setFilterServices([...selectedServices]); // Copiem serviciile selectate în lista de filtrare
+    setFilterServices([...selectedServices]);
     setSearchPerformed(true);
   };
 

@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "EIS Service",
+  "name": "EIS Service - Găsește sau oferă servicii profesionale",
   "icons": [
     {
       "src": "favicon.ico",

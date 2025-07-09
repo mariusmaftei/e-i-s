@@ -1,44 +1,155 @@
 .homePage {
   display: flex;
-  min-height: calc(100vh - 9rem); /* Subtract header and footer height */
+  min-height: calc(100vh - 9rem);
   width: 100%;
+  user-select: none;
 }
 
 .leftSide {
   flex: 1;
-  background-color: #0056b3;
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content: flex-end; /* Align content to the right */
+  justify-content: flex-end;
   padding: 2rem;
   box-sizing: border-box;
+  transition: flex 1s ease-in-out, width 1s ease-in-out, opacity 1s ease-in-out,
+    padding 1s ease-in-out, justify-content 1s ease-in-out;
+  overflow: hidden;
 }
 
 .rightSide {
   flex: 1;
-  background-color: rgba(255, 255, 255, 0.9);
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* Align content to the left */
+  justify-content: flex-start;
   padding: 2rem;
   box-sizing: border-box;
+  transition: flex 1s ease-in-out, width 1s ease-in-out, opacity 1s ease-in-out,
+    padding 1s ease-in-out, justify-content 1s ease-in-out;
+  overflow: hidden;
+}
+
+.leftBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../../assets/images/background-images/construction-side-image.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.3;
+  z-index: 1;
+}
+
+.rightBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../../assets/images/background-images/office-side-image.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.3;
+  z-index: 1;
+}
+
+.leftOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0056b3;
+  opacity: 0.85;
+  z-index: 2;
+}
+
+.rightOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  opacity: 0.75;
+  z-index: 2;
+}
+
+.leftSide.expand {
+  flex: 1 1 100%;
+  width: 100%;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  justify-content: center;
+}
+
+.rightSide.expand {
+  flex: 1 1 100%;
+  width: 100%;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  justify-content: center;
+}
+
+.leftSide.hide {
+  flex: 0 0 0%;
+  width: 0;
+  opacity: 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+.rightSide.hide {
+  flex: 0 0 0%;
+  width: 0;
+  opacity: 0;
+  overflow: hidden;
+  padding: 0;
 }
 
 .sideContent {
   display: flex;
   flex-direction: column;
-  max-width: 400px; /* Max width for the content block itself */
+  max-width: 400px;
   width: 100%;
+  position: relative;
+  z-index: 3;
+
+  transition: align-items 1s ease-in-out, text-align 1s ease-in-out,
+    margin-left 2s ease-in-out, margin-right 2s ease-in-out;
 }
 
 .leftSide .sideContent {
-  align-items: flex-end; /* Align children to the right */
-  text-align: right; /* Align text within children to the right */
+  align-items: flex-end;
+  text-align: right;
+  margin-left: auto;
+  margin-right: 0;
 }
 
 .rightSide .sideContent {
-  align-items: flex-start; /* Align children to the left */
-  text-align: left; /* Align text within children to the left */
+  align-items: flex-start;
+  text-align: left;
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.leftSide.expand .sideContent,
+.rightSide.expand .sideContent {
+  align-items: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.leftSide.expand .imageWrapper,
+.rightSide.expand .imageWrapper {
+  justify-content: center;
 }
 
 .sideTitle {
@@ -73,33 +184,35 @@
 .imageWrapper {
   margin-bottom: 2.5rem;
   display: flex;
+  transition: justify-content 1s ease-in-out;
 }
 
 .leftSide .imageWrapper {
-  justify-content: flex-end; /* Push image to the right within left side */
+  justify-content: flex-end;
 }
 
 .rightSide .imageWrapper {
-  justify-content: flex-start; /* Push image to the left within right side */
+  justify-content: flex-start;
 }
 
 .sideImage {
-  max-width: 420px; /* 50% larger than previous 280px */
+  max-width: 630px;
   height: auto;
   display: block;
   border-radius: 0.5rem;
+  position: relative;
+  z-index: 4;
 }
 
-/* New style for button container to center the button */
 .buttonContainer {
-  width: 100%; /* Ensure it takes full width to allow centering */
+  width: 100%;
   display: flex;
-  justify-content: center; /* Center the button horizontally */
+  justify-content: center;
 }
 
 .buttonProvider,
 .buttonClient {
-  display: inline-flex; /* Keep as inline-flex so it doesn't take full width */
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 1rem 2rem;
@@ -110,6 +223,8 @@
   transition: all 0.2s ease;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   min-width: 200px;
+  position: relative;
+  z-index: 4;
 }
 
 .buttonProvider {
@@ -136,76 +251,76 @@
   box-shadow: 0 6px 16px rgba(0, 86, 179, 0.4);
 }
 
-/* Mobile responsive design (maintaining row direction) */
-@media (max-width: 768px) {
+@media (max-width: 930px) {
   .homePage {
-    /* flex-direction: column; - REMOVED, keeping row */
-    min-height: auto; /* Allow height to adjust */
+    .homePage {
+      display: flex;
+      min-height: calc(100vh - 9rem);
+      width: 100%;
+    }
   }
 
   .leftSide,
   .rightSide {
-    padding: 1rem; /* Reduced padding for smaller screens */
-    /* Revert justify-content to original desktop values */
-    justify-content: flex-end; /* For leftSide */
-    /* For rightSide, it's flex-start, which is already the default */
+    padding: 1rem;
+    justify-content: flex-end;
   }
 
   .sideContent {
-    /* Revert align-items and text-align to original desktop values */
-    align-items: flex-end; /* For leftSide */
-    text-align: right; /* For leftSide */
-    /* For rightSide, it's flex-start/left, which is already the default */
-    max-width: 100%; /* Allow content to shrink with column */
+    align-items: flex-end;
+    text-align: right;
+    max-width: 100%;
   }
 
   .sideTitle {
-    font-size: 1.5rem; /* Smaller font size */
+    font-size: 1.1rem;
   }
 
   .sideDescription {
-    font-size: 0.875rem; /* Smaller font size */
-    margin-bottom: 1rem; /* Reduced margin */
+    font-size: 0.7rem;
+    margin-bottom: 1rem;
   }
 
   .sideImage {
-    max-width: 100%; /* Make image responsive to its parent column */
+    max-width: 100%;
   }
 
   .imageWrapper {
-    margin-bottom: 1.5rem; /* Reduced margin */
-    /* Revert justify-content to original desktop values */
-    justify-content: flex-end; /* For leftSide */
-    /* For rightSide, it's flex-start, which is already the default */
+    margin-bottom: 1.5rem;
+    justify-content: flex-end;
   }
 
   .buttonProvider,
   .buttonClient {
-    font-size: 0.9rem; /* Smaller button text */
-    padding: 0.75rem 1rem; /* Smaller button padding */
-    min-width: 120px; /* Smaller min-width for buttons */
+    font-size: 0.9rem;
+    padding: 0.75rem 1rem;
+    min-width: 120px;
   }
 }
 
-/* Further adjustments for very small screens */
-@media (max-width: 480px) {
+@media (max-width: 390px) {
   .leftSide,
   .rightSide {
-    padding: 0.5rem; /* Even smaller padding */
+    padding: 0.5rem;
   }
 
   .sideTitle {
-    font-size: 1.25rem; /* Even smaller font size */
+    font-size: 0.9rem;
   }
 
   .sideDescription {
-    font-size: 0.8rem; /* Even smaller font size */
+    font-size: 0.6rem;
   }
 
   .buttonProvider,
   .buttonClient {
-    font-size: 0.8rem; /* Smaller button text */
-    padding: 0.5rem 0.3rem; /* Smaller button padding */
-    min-width: 100px; /* Smaller min-width for buttons */
+    font-size: 0.8rem;
+    padding: 0.5rem 0.3rem;
+    min-width: 100px;
+  }
+  .homePage {
+    display: flex;
+    min-height: calc(100vh - 9rem);
+    width: 100%;
   }
 }

@@ -1,5 +1,6 @@
 import styles from "./Footer.module.css";
-import EISLogo from "../../../assets/images/EIS_logo.png";
+import { Link } from "react-router-dom";
+import EISLogo from "../../../assets/images/logo/eis-service-logo.png";
 
 const Footer = () => {
   return (
@@ -70,7 +71,7 @@ const Footer = () => {
             <h4 className={styles.sectionTitle}>Link-uri rapide</h4>
             <ul className={styles.linkList}>
               <li>
-                <a href="#" className={styles.link}>
+                <Link href="/" className={styles.link}>
                   <svg
                     className={styles.linkIcon}
                     fill="none"
@@ -85,10 +86,10 @@ const Footer = () => {
                     />
                   </svg>
                   Acasă
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className={styles.link}>
+                <Link href="/solicita-serviciu" className={styles.link}>
                   <svg
                     className={styles.linkIcon}
                     fill="none"
@@ -102,11 +103,11 @@ const Footer = () => {
                       d="M9 5l7 7-7 7"
                     />
                   </svg>
-                  Servicii
-                </a>
+                  Solicită un specialist
+                </Link>
               </li>
               <li>
-                <a href="#" className={styles.link}>
+                <Link href="/devino-prestator" className={styles.link}>
                   <svg
                     className={styles.linkIcon}
                     fill="none"
@@ -120,11 +121,11 @@ const Footer = () => {
                       d="M9 5l7 7-7 7"
                     />
                   </svg>
-                  Prestatori
-                </a>
+                  Înscrie-te ca specialist
+                </Link>
               </li>
               <li>
-                <a href="#" className={styles.link}>
+                <Link href="/despre" className={styles.link}>
                   <svg
                     className={styles.linkIcon}
                     fill="none"
@@ -139,10 +140,10 @@ const Footer = () => {
                     />
                   </svg>
                   Despre noi
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className={styles.link}>
+                <Link href="/contact" className={styles.link}>
                   <svg
                     className={styles.linkIcon}
                     fill="none"
@@ -157,7 +158,7 @@ const Footer = () => {
                     />
                   </svg>
                   Contact
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -166,7 +167,7 @@ const Footer = () => {
             <h4 className={styles.sectionTitle}>Servicii</h4>
             <ul className={styles.linkList}>
               <li>
-                <a href="#" className={styles.link}>
+                <a href="/" className={styles.link}>
                   <svg
                     className={styles.linkIcon}
                     fill="none"
@@ -184,7 +185,7 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="#" className={styles.link}>
+                <a href="/" className={styles.link}>
                   <svg
                     className={styles.linkIcon}
                     fill="none"
@@ -202,7 +203,7 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="#" className={styles.link}>
+                <a href="/" className={styles.link}>
                   <svg
                     className={styles.linkIcon}
                     fill="none"
@@ -220,7 +221,7 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="#" className={styles.link}>
+                <a href="/" className={styles.link}>
                   <svg
                     className={styles.linkIcon}
                     fill="none"
@@ -238,7 +239,7 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="#" className={styles.link}>
+                <a href="/" className={styles.link}>
                   <svg
                     className={styles.linkIcon}
                     fill="none"

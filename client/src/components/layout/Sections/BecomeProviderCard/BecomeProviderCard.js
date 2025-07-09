@@ -1,4 +1,4 @@
-import OfficeWomanImage from "../../../../assets/images/office-register.png";
+import OfficeWomanImage from "../../../../assets/images/eis-team-images/office-register.webp";
 import { Link } from "react-router-dom";
 import styles from "./BecomeProviderCard.module.css";
 
@@ -20,7 +20,7 @@ export default function BecomeProviderCard() {
               </p>
               <div className={styles.ctaButtonWrapper}>
                 <Link to="/devino-prestator" className={styles.ctaButton}>
-                  Oferă un serviciu
+                  Înscrie-te ca specialist
                 </Link>
               </div>
             </div>

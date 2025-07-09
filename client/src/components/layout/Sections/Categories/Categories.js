@@ -1,15 +1,14 @@
-"use client";
-
 import CategoryCard from "../../../UI/CategoryCard/CategoryCard";
 import styles from "./Categories.module.css";
 import { Paintbrush, Filter, X } from "lucide-react";
 import { useServiceContext } from "../../../../context/ServiceContext";
-import ElectricianImage from "../../../../assets/images/electrician.jpg";
-import MechanicAutoImage from "../../../../assets/images/mecanicauto.jpg";
-import InstalatorImage from "../../../../assets/images/instalator.jpg";
-import TamplarImage from "../../../../assets/images/tamplar.jpg";
-import CurațenieImage from "../../../../assets/images/curatenie.jpg";
-import ZugravImage from "../../../../assets/images/zugrav.jpg";
+
+import ElectricianImage from "../../../../assets/images/category-images/electrician-image.webp";
+import MechanicAutoImage from "../../../../assets/images/category-images/car-mechanic-image.webp";
+import PlumberImage from "../../../../assets/images/category-images/plumber-image.webp";
+import CarpenterImage from "../../../../assets/images/category-images/carpenter-image.webp";
+import HouseCleanerImage from "../../../../assets/images/category-images/cleaning-image.webp";
+import PainterImage from "../../../../assets/images/category-images/painter-image.webp";
 
 const Categories = () => {
   const { filterServices, searchPerformed, clearServices } =
@@ -38,7 +37,7 @@ const Categories = () => {
       icon: "🚿",
       description: "Servicii și reparații de instalații",
       count: 52,
-      backgroundImage: InstalatorImage,
+      backgroundImage: PlumberImage,
     },
     {
       id: 4,
@@ -46,7 +45,7 @@ const Categories = () => {
       icon: "🪚",
       description: "Lucrări în lemn și reparații mobilier",
       count: 29,
-      backgroundImage: TamplarImage,
+      backgroundImage: CarpenterImage,
     },
     {
       id: 5,
@@ -54,7 +53,7 @@ const Categories = () => {
       icon: "🧹",
       description: "Curățenie pentru case și birouri",
       count: 64,
-      backgroundImage: CurațenieImage,
+      backgroundImage: HouseCleanerImage,
     },
     {
       id: 6,
@@ -62,12 +61,10 @@ const Categories = () => {
       icon: <Paintbrush size={24} />,
       description: "Zugrăveli interioare și exterioare",
       count: 31,
-      backgroundImage: ZugravImage,
+      backgroundImage: PainterImage,
     },
   ];
 
-  // Filtrăm categoriile dacă s-a efectuat o căutare și există servicii pentru filtrare
-  // Acum folosim filterServices în loc de selectedServices
   const categories =
     searchPerformed && filterServices.length > 0
       ? allCategories.filter((category) =>
@@ -107,7 +104,7 @@ const Categories = () => {
               </button>
             </div>
           )}
-          <a href="#" className={styles.viewAll}>
+          <a href="/" className={styles.viewAll}>
             Vezi toate categoriile
             <svg
               className={styles.viewAllIcon}

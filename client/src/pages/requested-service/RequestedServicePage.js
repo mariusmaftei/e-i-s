@@ -1,6 +1,5 @@
-"use client";
 import { useParams, useLocation } from "react-router-dom";
-import ProviderServiceOfferForm from "../../components/UI/ProviderServiceOfferForm/ProviderServiceOfferForm";
+import ClientServiceRequestForm from "../../components/UI/ClientServiceRequestForm/ClientServiceRequestForm";
 import styles from "./RequestServicePage.module.css";
 
 const RequestServicePage = () => {
@@ -40,7 +39,7 @@ const RequestServicePage = () => {
         </p>
       </div>
 
-      <ProviderServiceOfferForm
+      <ClientServiceRequestForm
         serviceSubject={categoryName || defaultCategoryName}
       />
     </div>

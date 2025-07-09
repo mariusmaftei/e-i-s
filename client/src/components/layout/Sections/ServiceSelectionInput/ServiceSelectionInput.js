@@ -1,11 +1,8 @@
-"use client";
-
 import { useState, useRef, useEffect } from "react";
 import { X, ChevronDown, ChevronUp } from "lucide-react";
 import { createPortal } from "react-dom";
 import styles from "./ServiceSelectionInput.module.css";
 
-// Lista globală de servicii populare
 const ALL_POPULAR_SERVICES = [
   "Electrician",
   "Instalator",
@@ -22,9 +19,9 @@ const ALL_POPULAR_SERVICES = [
 const ServiceSelectionInput = ({
   label,
   placeholder,
-  selectedServices, // Prop: array of currently selected services
-  onServicesChange = () => {}, // Prop: callback to update selected services in parent, cu valoare implicită
-  availableServices = ALL_POPULAR_SERVICES, // Prop: list of services to choose from
+  selectedServices,
+  onServicesChange = () => {},
+  availableServices = ALL_POPULAR_SERVICES,
   id,
   name,
   required = false,
@@ -75,7 +72,6 @@ const ServiceSelectionInput = ({
   }, []);
 
   const handleAddService = (service) => {
-    // console.log('handleAddService called. onServicesChange type:', typeof onServicesChange, 'value:', onServicesChange); // Debugging log
     if (!selectedServices.includes(service)) {
       onServicesChange([...selectedServices, service]);
     }
@@ -84,7 +80,6 @@ const ServiceSelectionInput = ({
   };
 
   const handleRemoveService = (serviceToRemove) => {
-    // console.log('handleRemoveService called. onServicesChange type:', typeof onServicesChange, 'value:', onServicesChange); // Debugging log
     onServicesChange(selectedServices.filter((s) => s !== serviceToRemove));
   };
 
@@ -178,7 +173,7 @@ const ServiceSelectionInput = ({
             onChange={(e) => setSearchTerm(e.target.value)}
             onClick={() => setIsDropdownOpen(true)}
             autoComplete="off"
-            required={required && selectedServices.length === 0} // Required only if no services are selected
+            required={required && selectedServices.length === 0}
           />
         </div>
         <button

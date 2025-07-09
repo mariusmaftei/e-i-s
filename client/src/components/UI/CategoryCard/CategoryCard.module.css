@@ -12,7 +12,6 @@
 }
 
 .card:hover {
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   border-color: #0056b3;
   transform: translateY(-3px);
 }
@@ -90,11 +89,10 @@
   font-size: 1rem;
   font-weight: 600;
   color: #0056b3;
-  /* Reintroducerea containerului alb pentru titlu */
   background-color: white;
   display: inline-block;
   padding: 0.25rem 0.5rem;
-  border-radius: 0.375rem; /* Modificat pentru consistență */
+  border-radius: 0.375rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
@@ -112,17 +110,17 @@
   font-size: 0.8125rem;
   color: #333;
   line-height: 1.4;
-  /* Reintroducerea containerului alb pentru descriere */
+
   background-color: white;
   padding: 0.25rem 0.5rem;
-  border-radius: 0.375rem; /* Modificat pentru consistență */
+  border-radius: 0.375rem;
   max-width: 95%;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
 .footer {
   display: flex;
-  justify-content: flex-end; /* Modificat de la space-between la flex-end */
+  justify-content: flex-end;
   align-items: center;
   margin-top: 0.5rem;
 }
@@ -132,7 +130,7 @@
   align-items: center;
   background-color: white;
   padding: 0.2rem 0.6rem;
-  border-radius: 0.375rem; /* Modificat pentru consistență */
+  border-radius: 0.375rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -156,7 +154,7 @@
   font-weight: 600;
   background-color: #0056b3;
   padding: 0.2rem 0.6rem;
-  border-radius: 0.375rem; /* Modificat pentru consistență */
+  border-radius: 0.375rem;
   transition: all 0.2s ease;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -174,4 +172,40 @@
 
 .card:hover .arrowIcon {
   transform: translateX(2px);
+}
+
+@media (max-width: 390px) {
+  .card {
+    height: 200px;
+  }
+
+  .content {
+    padding: 1rem;
+  }
+
+  .iconContainer {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1rem;
+  }
+
+  .title {
+    font-size: 0.875rem;
+    padding: 0.15rem 0.4rem;
+  }
+
+  .description {
+    font-size: 0.75rem;
+    padding: 0.15rem 0.4rem;
+  }
+
+  .viewMore {
+    font-size: 0.625rem;
+    padding: 0.15rem 0.5rem;
+  }
+
+  .arrowIcon {
+    width: 1rem;
+    height: 1rem;
+  }
 }
