@@ -2,6 +2,8 @@ import styles from "./HeroSection.module.css";
 import { useLocation } from "react-router-dom";
 import SearchBar from "../../../UI/SearchBar/SearchBar";
 
+import { contactInfo } from "../../../../config/contactInfo";
+
 import ConstructionSideImage from "../../../../assets/images/background-images/construction-side-image.webp";
 import OfficeSideImage from "../../../../assets/images/background-images/office-side-image.webp";
 
@@ -68,6 +70,31 @@ const HeroSection = ({
               alt="background-cover"
               className={styles.heroImage}
             />
+            <div className={styles.phoneSection}>
+              <p className={styles.phoneMessage}>Sună Acum!</p>
+              <div className={styles.phoneCard}>
+                <div className={styles.phoneIcon}>
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+                <a
+                  href={`tel:${contactInfo.phoneFormatted}`}
+                  className={styles.phoneNumber}
+                >
+                  {contactInfo.phone}
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>

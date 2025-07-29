@@ -2,14 +2,16 @@ import styles from "./CategoryCard.module.css";
 import { Link } from "react-router-dom";
 
 const CategoryCard = ({ category }) => {
+  // Convertim numele categoriei pentru URL
   const categorySlug = category.name.toLowerCase().replace(/\s+/g, "-");
 
   return (
     <Link
-      to={`/solicita-serviciu/${categorySlug}`}
+      to={`/solicita-serviciu/${categorySlug}/`} // Changed route to contact options
       state={{
         categoryName: category.name,
         categoryImage: category.backgroundImage,
+        categorySlug: categorySlug,
       }}
       className="block group"
     >
@@ -20,6 +22,7 @@ const CategoryCard = ({ category }) => {
           className={styles.backgroundImage}
         />
 
+        {/* Overlay alb adăugat */}
         <div className={styles.overlay}></div>
 
         <div className={styles.content}>
@@ -43,7 +46,7 @@ const CategoryCard = ({ category }) => {
 
             <div className={styles.footer}>
               <div className={styles.viewMore}>
-                <span>Vezi specialiști</span>
+                <span>Vezi opțiuni contact</span> {/* Updated button text */}
                 <svg
                   className={styles.arrowIcon}
                   width="16"

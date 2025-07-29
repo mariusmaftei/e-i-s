@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import clientRoute from "./routes/clientRoutes.js";
 import providerRoute from "./routes/providerRouts.js";
+import policyRoute from "./routes/providerRouts.js";
 
 dotenv.config();
 
@@ -23,6 +24,7 @@ app.get("/", (req, res) => {
 
 app.use("/client", clientRoute);
 app.use("/provider", providerRoute);
+app.use("/policy", policyRoute);
 
 const server = () => {
   app.listen(port, () => {

@@ -2,26 +2,16 @@ import { useState, useRef, useEffect } from "react";
 import { X, ChevronDown, ChevronUp } from "lucide-react";
 import { createPortal } from "react-dom";
 import styles from "./ServiceSelectionInput.module.css";
+import { allCategories } from "../../../../constants/allCategories";
 
-const ALL_POPULAR_SERVICES = [
-  "Electrician",
-  "Instalator",
-  "Mecanic Auto",
-  "Tâmplar",
-  "Zugrav",
-  "Curățenie",
-  "Grădinar",
-  "Montaj Mobilă",
-  "Reparații Electrocasnice",
-  "Transport",
-];
+const ALL_POPULAR_SERVICES = allCategories.map((category) => category.name);
 
 const ServiceSelectionInput = ({
   label,
   placeholder,
-  selectedServices,
-  onServicesChange = () => {},
-  availableServices = ALL_POPULAR_SERVICES,
+  selectedServices, // Prop: array of currently selected services
+  onServicesChange = () => {}, // Prop: callback to update selected services in parent, cu valoare implicită
+  availableServices = ALL_POPULAR_SERVICES, // Prop: list of services to choose from
   id,
   name,
   required = false,
@@ -72,6 +62,7 @@ const ServiceSelectionInput = ({
   }, []);
 
   const handleAddService = (service) => {
+    // console.log('handleAddService called. onServicesChange type:', typeof onServicesChange, 'value:', onServicesChange); // Debugging log
     if (!selectedServices.includes(service)) {
       onServicesChange([...selectedServices, service]);
     }
@@ -80,6 +71,7 @@ const ServiceSelectionInput = ({
   };
 
   const handleRemoveService = (serviceToRemove) => {
+    // console.log('handleRemoveService called. onServicesChange type:', typeof onServicesChange, 'value:', onServicesChange); // Debugging log
     onServicesChange(selectedServices.filter((s) => s !== serviceToRemove));
   };
 

@@ -1,6 +1,9 @@
+"use client";
+
 import { useState } from "react";
 import styles from "./ClientServiceRequestForm.module.css";
 import { clientServices } from "../../../services/client-services.js";
+import SuccessModal from "../SuccessModal/SuccessModal";
 
 const ClientServiceRequestForm = ({ serviceSubject = "" }) => {
   const [formData, setFormData] = useState({
@@ -11,11 +14,18 @@ const ClientServiceRequestForm = ({ serviceSubject = "" }) => {
     email: "",
     subiect: serviceSubject,
     descriereServiciu: "",
+    gdprConsent: {
+      dataProcessingConsent: false,
+      privacyPolicyAccepted: false,
+      marketingConsent: false,
+      timestamp: null,
+    },
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState("");
   const [formErrors, setFormErrors] = useState({});
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
 
   const romanianCounties = [
     "Alba",
@@ -69,10 +79,34 @@ const ClientServiceRequestForm = ({ serviceSubject = "" }) => {
       [name]: value,
     }));
 
+    // Clear specific field error when user starts typing
     if (formErrors[name]) {
       setFormErrors((prev) => ({
         ...prev,
         [name]: "",
+      }));
+    }
+  };
+
+  const handleConsentChange = (e) => {
+    const { name, checked } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      gdprConsent: {
+        ...prevData.gdprConsent,
+        [name]: checked,
+        timestamp: checked
+          ? new Date().toISOString()
+          : prevData.gdprConsent.timestamp,
+      },
+    }));
+
+    // Clear consent errors when user checks boxes
+    if (formErrors.gdprConsent || formErrors.privacyPolicy) {
+      setFormErrors((prev) => ({
+        ...prev,
+        gdprConsent: "",
+        privacyPolicy: "",
       }));
     }
   };
@@ -83,6 +117,7 @@ const ClientServiceRequestForm = ({ serviceSubject = "" }) => {
     setSubmitMessage("");
     setFormErrors({});
 
+    // Validate form data
     const validation = clientServices.validateClientForm(formData);
 
     if (!validation.isValid) {
@@ -93,10 +128,11 @@ const ClientServiceRequestForm = ({ serviceSubject = "" }) => {
     }
 
     try {
+      // Send form data to backend
       const result = await clientServices.sendServiceRequest(formData);
 
       if (result.success) {
-        setSubmitMessage(result.message);
+        // Reset form on success
         setFormData({
           nume: "",
           prenume: "",
@@ -105,7 +141,14 @@ const ClientServiceRequestForm = ({ serviceSubject = "" }) => {
           email: "",
           subiect: serviceSubject,
           descriereServiciu: "",
+          gdprConsent: {
+            dataProcessingConsent: false,
+            privacyPolicyAccepted: false,
+            marketingConsent: false,
+            timestamp: null,
+          },
         });
+        setShowSuccessModal(true);
       } else {
         setSubmitMessage(result.message);
       }
@@ -118,6 +161,11 @@ const ClientServiceRequestForm = ({ serviceSubject = "" }) => {
       setIsSubmitting(false);
     }
   };
+
+  const canSubmit =
+    formData.gdprConsent.dataProcessingConsent &&
+    formData.gdprConsent.privacyPolicyAccepted &&
+    !isSubmitting;
 
   return (
     <div className={styles.formContainer}>
@@ -290,14 +338,121 @@ const ClientServiceRequestForm = ({ serviceSubject = "" }) => {
           )}
         </div>
 
+        {/* GDPR Consent Section */}
+        <div className={styles.gdprSection}>
+          <h3 className={styles.gdprTitle}>
+            Consimțământ pentru prelucrarea datelor (GDPR)
+          </h3>
+
+          <div className={styles.consentGroup}>
+            <label className={styles.checkboxLabel}>
+              <input
+                type="checkbox"
+                name="dataProcessingConsent"
+                checked={formData.gdprConsent.dataProcessingConsent}
+                onChange={handleConsentChange}
+                className={styles.checkbox}
+                required
+              />
+              <span className={styles.checkboxText}>
+                <strong>Sunt de acord cu prelucrarea datelor personale</strong>{" "}
+                în scopul contactării și furnizării serviciilor solicitate. *
+              </span>
+            </label>
+            {formErrors.gdprConsent && (
+              <span className={styles.errorText}>{formErrors.gdprConsent}</span>
+            )}
+          </div>
+
+          <div className={styles.consentGroup}>
+            <label className={styles.checkboxLabel}>
+              <input
+                type="checkbox"
+                name="privacyPolicyAccepted"
+                checked={formData.gdprConsent.privacyPolicyAccepted}
+                onChange={handleConsentChange}
+                className={styles.checkbox}
+                required
+              />
+              <span className={styles.checkboxText}>
+                <strong>Am citit și accept</strong>{" "}
+                <a
+                  href="/politica-confidentialitate"
+                  target="_blank"
+                  className={styles.policyLink}
+                  rel="noreferrer"
+                >
+                  Politica de Confidențialitate
+                </a>{" "}
+                și{" "}
+                <a
+                  href="/termeni-conditii"
+                  target="_blank"
+                  className={styles.policyLink}
+                  rel="noreferrer"
+                >
+                  Termenii și Condițiile
+                </a>
+                . *
+              </span>
+            </label>
+            {formErrors.privacyPolicy && (
+              <span className={styles.errorText}>
+                {formErrors.privacyPolicy}
+              </span>
+            )}
+          </div>
+
+          <div className={styles.consentGroup}>
+            <label className={styles.checkboxLabel}>
+              <input
+                type="checkbox"
+                name="marketingConsent"
+                checked={formData.gdprConsent.marketingConsent}
+                onChange={handleConsentChange}
+                className={styles.checkbox}
+              />
+              <span className={styles.checkboxText}>
+                Sunt de acord să primesc comunicări de marketing și oferte
+                speciale pe email. (opțional)
+              </span>
+            </label>
+          </div>
+
+          <div className={styles.gdprNote}>
+            <p>
+              * Câmpurile marcate sunt obligatorii. Datele dumneavoastră vor fi
+              procesate conform{" "}
+              <a
+                href="/politica-confidentialitate"
+                target="_blank"
+                className={styles.policyLink}
+                rel="noreferrer"
+              >
+                Politicii de Confidențialitate
+              </a>
+              .
+            </p>
+          </div>
+        </div>
+
         <button
           type="submit"
-          className={styles.submitButton}
-          disabled={isSubmitting}
+          className={`${styles.submitButton} ${
+            !canSubmit ? styles.submitButtonDisabled : ""
+          }`}
+          disabled={!canSubmit}
         >
           {isSubmitting ? "Se trimite..." : "Trimite Solicitarea"}
         </button>
       </form>
+      <SuccessModal
+        isOpen={showSuccessModal}
+        onClose={() => setShowSuccessModal(false)}
+        title="Solicitare Trimisă cu Succes!"
+        message="Mulțumim pentru încrederea acordată! Solicitarea dumneavoastră pentru servicii a fost înregistrată cu succes în sistemul nostru."
+        emailMessage="Veți primi un email de confirmare la adresa specificată în formular."
+      />
     </div>
   );
 };

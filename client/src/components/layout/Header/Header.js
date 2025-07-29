@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
-import EISLogo from "../../../assets/images/logo/eis-service-logo.png";
+import EISLogo from "../../../assets/images/logo/eis-service-logo.webp";
+import { contactInfo } from "../../../config/contactInfo";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,11 +14,7 @@ const Header = () => {
           <div className={styles.logoWrapper}>
             <Link to="/" className={styles.logoLink}>
               <div className={styles.logoContainer}>
-                <img
-                  src={EISLogo || "/placeholder.svg"}
-                  alt="E.I.S. Logo"
-                  className={styles.logo}
-                />
+                <img src={EISLogo} alt="E.I.S. Logo" className={styles.logo} />
               </div>
               <span className={styles.logoText}>E.I.S. Service</span>
             </Link>
@@ -28,10 +25,10 @@ const Header = () => {
               Acasă
             </Link>
             <Link to="/solicita-serviciu" className={styles.navLink}>
-              Solicită un specialist
+              Cere un serviciu
             </Link>
             <Link to="/devino-prestator" className={styles.navLink}>
-              Înscrie-te ca specialist
+              Oferă un serviciu
             </Link>
             <Link to="/despre" className={styles.navLink}>
               Despre noi
@@ -39,6 +36,12 @@ const Header = () => {
             <Link to="/contact" className={styles.navLink}>
               Contact
             </Link>
+            <a
+              href={`tel:${contactInfo.phoneFormatted}`}
+              className={styles.phoneLink}
+            >
+              📞 {contactInfo.phone}
+            </a>
           </div>
 
           <div className={styles.mobileMenuButton}>
@@ -73,6 +76,7 @@ const Header = () => {
           </div>
         </div>
 
+        {/* Mobile Menu and Overlay */}
         {isMenuOpen && (
           <>
             <div
@@ -93,14 +97,14 @@ const Header = () => {
                   className={styles.mobileNavLink}
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Solicită un specialist
+                  Servicii
                 </Link>
                 <Link
                   to="/devino-prestator"
                   className={styles.mobileNavLink}
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Înscrie-te ca specialist
+                  Oferă un serviciu
                 </Link>
                 <Link
                   to="/despre"
@@ -116,6 +120,13 @@ const Header = () => {
                 >
                   Contact
                 </Link>
+                <a
+                  href={`tel:${contactInfo.phoneFormatted}`}
+                  className={styles.mobilePhoneLink}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  📞 {contactInfo.phone}
+                </a>
               </div>
             </div>
           </>

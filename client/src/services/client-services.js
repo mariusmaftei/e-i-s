@@ -1,6 +1,7 @@
 import api from "./api.js";
 
 export const clientServices = {
+  // Send client service request
   sendServiceRequest: async (formData) => {
     try {
       const response = await api.post("/client", formData);
@@ -13,7 +14,9 @@ export const clientServices = {
     } catch (error) {
       console.error("Error sending client service request:", error);
 
+      // Handle different types of errors
       if (error.response) {
+        // Server responded with error status
         return {
           success: false,
           message:
@@ -22,12 +25,14 @@ export const clientServices = {
           status: error.response.status,
         };
       } else if (error.request) {
+        // Request was made but no response received
         return {
           success: false,
           message:
             "Nu s-a putut conecta la server. Verificați conexiunea la internet.",
         };
       } else {
+        // Something else happened
         return {
           success: false,
           message:
@@ -37,6 +42,7 @@ export const clientServices = {
     }
   },
 
+  // Validate client form data before sending
   validateClientForm: (formData) => {
     const errors = {};
 
@@ -81,6 +87,17 @@ export const clientServices = {
     ) {
       errors.descriereServiciu =
         "Descrierea serviciului trebuie să conțină cel puțin 10 caractere";
+    }
+
+    // GDPR Consent validation
+    if (!formData.gdprConsent || !formData.gdprConsent.dataProcessingConsent) {
+      errors.gdprConsent =
+        "Consimțământul pentru prelucrarea datelor este obligatoriu";
+    }
+
+    if (!formData.gdprConsent || !formData.gdprConsent.privacyPolicyAccepted) {
+      errors.privacyPolicy =
+        "Acceptarea politicii de confidențialitate este obligatorie";
     }
 
     return {

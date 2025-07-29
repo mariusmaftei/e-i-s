@@ -8,6 +8,8 @@ import RequestServicePage from "./pages/requested-service/RequestedServicePage";
 import ProvidersPage from "./pages/providers/ProvidersPage";
 import AboutPage from "./pages/about/AboutPage";
 import ContactPage from "./pages/contact/ContactPage";
+import ContactOptionsPage from "./pages/contact-option/ContactOptionsPage";
+import PrivacyPolicyPage from "./pages/privacy-policy/PrivacyPolicyPage";
 
 const route = createBrowserRouter([
   {
@@ -22,8 +24,13 @@ const route = createBrowserRouter([
         path: "/solicita-serviciu",
         element: <ServicePage />,
       },
+
       {
         path: "/solicita-serviciu/:categorySlug",
+        element: <ContactOptionsPage />,
+      },
+      {
+        path: "/solicita-serviciu/:categorySlug/formular",
         element: <RequestServicePage />,
       },
       {
@@ -37,6 +44,10 @@ const route = createBrowserRouter([
       {
         path: "/contact",
         element: <ContactPage />,
+      },
+      {
+        path: "/politica-confidentialitate",
+        element: <PrivacyPolicyPage />,
       },
     ],
   },

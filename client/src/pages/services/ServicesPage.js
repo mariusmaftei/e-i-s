@@ -5,9 +5,9 @@ import { ServiceProvider } from "../../context/ServiceContext";
 import BecomeProviderCard from "../../components/layout/Sections/BecomeProviderCard/BecomeProviderCard";
 
 import EISTeamImage from "../../assets/images/eis-team-images/eis_team.webp";
-import ElectricianIcon from "../../assets/images/illustration/electrician-image.png";
-import PlumberIcon from "../../assets/images/illustration/plumber-image.png";
-import WelderIcon from "../../assets/images/illustration/welder-image.png";
+import ElectricianIcon from "../../assets/images/illustration/electrician-image.webp";
+import PlumberIcon from "../../assets/images/illustration/plumber-image.webp";
+import WelderIcon from "../../assets/images/illustration/welder-image.webp";
 
 const ServicePage = () => {
   const popularServiceIcons = [

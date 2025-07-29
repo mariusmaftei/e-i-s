@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="ro">
-  <!-- use your main language, Romanian -->
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="icon" href="./favicon.ico" />
+    <meta property="og:image" content="/logo512.png" />
 
     <!-- Viewport for responsive design -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -17,7 +17,7 @@
       content="EIS Service - Găsește sau oferă servicii profesionale de încredere. Platforma ta pentru conexiuni rapide între clienți și furnizori."
     />
 
-    <!-- Keywords (optional, less used nowadays but can help) -->
+    <!-- Keywords (optional) -->
     <meta
       name="keywords"
       content="servicii profesionale, găsește servicii, oferă servicii, EIS Service, platformă servicii, România"
@@ -25,6 +25,12 @@
 
     <!-- Author -->
     <meta name="author" content="EIS Service" />
+
+    <!-- Robots directive -->
+    <meta name="robots" content="index, follow" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://eisservice.ro/" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -52,7 +58,6 @@
     />
     <meta name="twitter:image" content="%PUBLIC_URL%/logo512.png" />
     <meta name="twitter:site" content="@EISService" />
-    <!-- if you have a Twitter account -->
 
     <!-- Apple touch icon -->
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
@@ -63,9 +68,9 @@
     <title>EIS Service - Găsește sau oferă servicii profesionale</title>
   </head>
   <body>
-    <noscript
-      >Trebuie să activați JavaScript pentru a rula această aplicație.</noscript
-    >
+    <noscript>
+      Trebuie să activați JavaScript pentru a rula această aplicație.
+    </noscript>
     <div id="root"></div>
   </body>
 </html>

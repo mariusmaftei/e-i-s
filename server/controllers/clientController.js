@@ -10,6 +10,7 @@ export const sendClientEmail = async (req, res) => {
       email,
       subiect,
       descriereServiciu,
+      gdprConsent,
     } = req.body;
 
     // Validation
@@ -25,6 +26,18 @@ export const sendClientEmail = async (req, res) => {
       return res.status(400).json({
         success: false,
         message: "Toate câmpurile sunt obligatorii",
+      });
+    }
+
+    // GDPR Consent validation
+    if (
+      !gdprConsent ||
+      !gdprConsent.dataProcessingConsent ||
+      !gdprConsent.privacyPolicyAccepted
+    ) {
+      return res.status(400).json({
+        success: false,
+        message: "Consent required to process data.",
       });
     }
 
@@ -79,6 +92,20 @@ export const sendClientEmail = async (req, res) => {
           ${descriereServiciu.replace(/\n/g, "<br>")}
         </div>
         
+        <h3>Consimțământ GDPR:</h3>
+        <div style="background-color: #e6f0ff; padding: 15px; border-left: 4px solid #0056b3; margin-bottom: 20px;">
+          <p><strong>Prelucrare date:</strong> ${
+            gdprConsent.dataProcessingConsent ? "Acceptat" : "Refuzat"
+          }</p>
+          <p><strong>Politica de confidențialitate:</strong> ${
+            gdprConsent.privacyPolicyAccepted ? "Acceptată" : "Refuzată"
+          }</p>
+          <p><strong>Marketing:</strong> ${
+            gdprConsent.marketingConsent ? "Acceptat" : "Refuzat"
+          }</p>
+          <p><strong>Timestamp:</strong> ${gdprConsent.timestamp}</p>
+        </div>
+        
         <p style="color: #666; font-size: 12px;">
           Această solicitare a fost trimisă prin formularul de pe site-ul eisservice.ro la data de ${new Date().toLocaleString(
             "ro-RO"
@@ -110,7 +137,7 @@ export const sendClientEmail = async (req, res) => {
         <p>Pentru întrebări suplimentare, ne puteți contacta:</p>
         <ul>
           <li>Email: contact@eisservice.ro</li>
-          <li>Telefon: 0752 912 191</li>
+          <li>Telefon:  0735 520 990</li>
         </ul>
         
         <p>Cu stimă,<br>
@@ -135,7 +162,7 @@ export const sendClientEmail = async (req, res) => {
 
     // Send confirmation email to client
     await clientTransporter.sendMail({
-      from: process.env.CLIENT_EMAIL,
+      from: `E.I.S. Service ${process.env.CLIENT_EMAIL}`,
       to: email,
       subject: "Confirmarea solicitării dumneavoastră - E.I.S. Service",
       html: clientEmailContent,
